@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{author.name}
+  p  #{author.date_of_birth_formatted}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+  p <strong>Books</strong> 
+
+  dl
+  each val in book
+    dt
+      a(href=val.url) #{val.title}
+    dd (#{val.summary})
+
+
+  else
+    p This author has no books.
+
+  hr
+  p
+    a(href=author.url+'/delete') Delete author
+
+  hr
+  p
+    a(href=author.url+'/update') Update author
